@@ -7,13 +7,13 @@ st.title("Calculator for angles")
 tab1, tab2 = st.tabs(["Anlge","Cont" ])
 
 with tab1:
-    a=st.number_input("B channel", value=0.0)
+    b=st.number_input("B channel", value=0.0)
     L=st.number_input("L channel", value=0.0)
 
     Up_tol=st.number_input("up tolerance", value=0.0)
     Down_tol=st.number_input("down tololerance", value=0.0)
 
-    c=(l**2 + b**2)**0.5
+    c=(L**2 + b**2)**0.5
 
     if st.button("Calculate", type="primary"):
         if c == 0:
@@ -25,12 +25,12 @@ with tab1:
 
             angle=math.degrees(math.asin(L/ c))
             angle_min = math.degrees(math.asin(L_min / c))
-            alpha_max = math.degrees(math.asin(L_max / c))
+            angle_max = math.degrees(math.asin(L_max / c))
 
             tol_min=angle_min-angle
             tol_max=angle_max-angle
 
-            st.latex(f"{round(angle,2)}_{{{round(angle_min,2)}}}^{{{round(angle_max,2)}}}")
+            st.latex(f"Angle: {round(angle,2)}_{{{round(tol_min,2)}}}^{{{round(tol_max,2)}}}")
 
 
 with tab2:
