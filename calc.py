@@ -2,7 +2,7 @@ import streamlit as st
 import math
 
 
-st.title("Calculator for angles")
+st.title("Calculator for degrees")
 
 tab1, tab2, tab3= st.tabs(["Anlge","Radian" ,"Degerees" ])
 
@@ -36,27 +36,30 @@ with tab1:
 
 
 with tab2:
-    st.title("Calculator degrees\n")
+    st.markdown(f"### Calculator radian\n")
     st.write("Enter angle")
 
-    angle=st.number_input("a = ",value=0.0)
+    angle=st.number_input("Degrees = ",value=0.0)
 
-    if angle == 0:
-        st.write("Enter angle is not null\n")
-    else:
-        if st.button("Radian"):
+
+    if st.button("Degree", type="primary"):
+        if angle == 0:
+            st.write("Enter angle is not null\n")
+        else:
             radian = (angle*math.pi)/180
-            st.write(f'Angle radian {round(radian,3)}')
+            st.divider()
+            st.markdown(f'Angle **{round(radian,3)}** radian')
 
 
 with tab3:
+    st.markdown(f"### Calculator degrees\n")
+
     st.title("Enter angle is not null \n")
-    st.write("Enter radian")
+    radian=st.number_input("Radian: ",value=0.0)
 
-    radian=st.number_input("a = ",value=0.0)
-
-    if angle == 0:
+    if radian == 0:
         st.write("Enter angle is not null\n")
     else:
-        deg = (math.degrees(angle)*math.pi)/180
-        st.write(f'Angle radian {round(deg,2)}')
+        deg = (radian*math.pi)/180
+        st.divider()
+        st.markdown(f'Angle: **{round(deg,2)}** radian')
