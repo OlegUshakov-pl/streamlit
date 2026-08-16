@@ -7,19 +7,22 @@ st.title("Calculator for angles")
 tab1, tab2 = st.tabs(["Anlge","Cont" ])
 
 with tab1:
-    a=st.number_input("a channel", value=0)
-    b=st.number_input("b channel", value=0)
-    up=st.number_input("up tol", value=0.0)
-    down=st.number_input("down tol", value=0.0)
+    a=st.number_input("B channel", value=0.0)
+    L=st.number_input("L channel", value=0.0)
 
-    c=(a**2 + b**2)**0.5
+    Up_tol=st.number_input("up tolerance", value=0.0)
+    Down_tol=st.number_input("down tololerance", value=0.0)
+
+    c=(l**2 + b**2)**0.5
+
     if st.button("Calculate", type="primary"):
         if c == 0:
-            st.write("Введите ненулевые значения а или b")
+            st.write("а or b must be not null")
         else:
-            up_c = b - up
-            down_c = b + down
-            alpha_up = math.degrees(math.asin(up_c / c))
+
+            L_min=L+Up_tol
+            L_max=L-Down_tol
+            angle_up = math.degrees(math.asin(up_c / c))
             alpha_down = math.degrees(math.asin(down_c / c))
 
             alpha = math.degrees(math.asin(a / c))
