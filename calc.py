@@ -4,7 +4,7 @@ import math
 
 st.title("Calculator for angles")
 
-tab1, tab2 = st.tabs(["Anlge","Radian" ,"Degerees" ])
+tab1, tab2, tab3= st.tabs(["Anlge","Radian" ,"Degerees" ])
 
 with tab1:
     b=st.number_input("B channel", value=0.0)
@@ -43,26 +43,26 @@ with tab2:
 
     def calc_angle(a):
         if angle == 0:
-            st.write("Введите ненулевые значения a")
+            st.write("Enter anlge is not null\n")
 
         else:
-            x = (angle*math.pi)/180
-            st.write(f'Angle radian {round(x,2)}')
-            calc_angle(angle)
-            st.button("Angle", on_click=calc_angle, args=(angle,), type="primary")
+            if st.button("Radian"):
+                x = (angle*math.pi)/180
+                st.write(f'Angle radian {round(x,2)}')
 
-with tab2:
-    st.title("Calculator radian\n")
-    st.write("Enter angle")
 
-    angle=st.number_input("a = ",value=0.0)
+with tab3:
+    st.title("Enter anlge is not null \n")
+    st.write("Enter radian")
 
-    def calc_angle(a):
+    radian=st.number_input("a = ",value=0.0)
+
+    def calc_radian(a):
         if angle == 0:
             st.write("Введите ненулевые значения a")
 
         else:
-            x = (angle*math.pi)/180
+            deg = (angle*math.pi)/180
             st.write(f'Angle radian {round(x,2)}')
             calc_angle(angle)
             st.button("Angle", on_click=calc_angle, args=(angle,), type="primary")
