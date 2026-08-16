@@ -37,7 +37,7 @@ with tab1:
 
 with tab2:
 
-    degrees=st.number_input("Radian:",value=0.00)
+    degrees=st.number_input("Radian:",value=0.000)
 
 
     if st.button("Degrees", type="primary"):
@@ -51,7 +51,7 @@ with tab2:
 
 with tab3:
 
-    radian=st.number_input("Degrees: ",value=0.00)
+    radian=st.number_input("Degrees: ",value=0.000)
 
     if st.button("Radian", type="primary"):
         if radian == 0:
