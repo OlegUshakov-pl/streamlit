@@ -41,28 +41,22 @@ with tab2:
 
     angle=st.number_input("a = ",value=0.0)
 
-    def calc_angle(a):
-        if angle == 0:
-            st.write("Enter anlge is not null\n")
-
-        else:
-            if st.button("Radian"):
-                x = (angle*math.pi)/180
-                st.write(f'Angle radian {round(x,2)}')
+    if angle == 0:
+        st.write("Enter angle is not null\n")
+    else:
+        if st.button("Radian"):
+            radian = (angle*math.pi)/180
+            st.write(f'Angle radian {round(radian,3)}')
 
 
 with tab3:
-    st.title("Enter anlge is not null \n")
+    st.title("Enter angle is not null \n")
     st.write("Enter radian")
 
     radian=st.number_input("a = ",value=0.0)
 
-    def calc_radian(a):
-        if angle == 0:
-            st.write("Введите ненулевые значения a")
-
-        else:
-            deg = (angle*math.pi)/180
-            st.write(f'Angle radian {round(x,2)}')
-            calc_angle(angle)
-            st.button("Angle", on_click=calc_angle, args=(angle,), type="primary")
+    if angle == 0:
+        st.write("Enter angle is not null\n")
+    else:
+        deg = (math.degrees(angle)*math.pi)/180
+        st.write(f'Angle radian {round(deg,2)}')
