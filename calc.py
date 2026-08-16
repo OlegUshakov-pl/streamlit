@@ -22,14 +22,15 @@ with tab1:
 
             L_min=L+Up_tol
             L_max=L-Down_tol
-            angle_up = math.degrees(math.asin(up_c / c))
-            alpha_down = math.degrees(math.asin(down_c / c))
 
-            alpha = math.degrees(math.asin(a / c))
-            up_angle=round(alpha_up - alpha,2)
-            down_angle=round(alpha_down - alpha,2)
+            angle=math.degrees(math.asin(L/ c))
+            angle_min = math.degrees(math.asin(L_min / c))
+            alpha_max = math.degrees(math.asin(L_max / c))
 
-            st.latex(f"{round(alpha,2)}_{{{round(alpha_down,2)}}}^{{{round(alpha_up,2)}}}")
+            tol_min=angle_min-angle
+            tol_max=angle_max-angle
+
+            st.latex(f"{round(angle,2)}_{{{round(angle_min,2)}}}^{{{round(angle_max,2)}}}")
 
 
 with tab2:
