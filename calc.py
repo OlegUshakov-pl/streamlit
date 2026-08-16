@@ -36,30 +36,27 @@ with tab1:
 
 
 with tab2:
-    st.markdown(f"### Calculator radian\n")
-    st.write("Enter angle")
 
-    angle=st.number_input("Degrees = ",value=0.0)
+    degrees=st.number_input("Radian:",value=0.00)
 
 
-    if st.button("Degree", type="primary"):
-        if angle == 0:
+    if st.button("Degrees", type="primary"):
+        if degrees == 0:
             st.write("Enter angle is not null\n")
         else:
-            radian = (angle*math.pi)/180
+            radian = (degrees*180)/math.pi
             st.divider()
-            st.markdown(f'Angle **{round(radian,3)}** radian')
+            st.markdown(f'Angle **{round(radian,1)}** radian')
 
 
 with tab3:
-    st.markdown(f"### Calculator degrees\n")
 
-    st.title("Enter angle is not null \n")
-    radian=st.number_input("Radian: ",value=0.0)
+    radian=st.number_input("Degrees: ",value=0.00)
 
-    if radian == 0:
-        st.write("Enter angle is not null\n")
-    else:
-        deg = (radian*math.pi)/180
-        st.divider()
-        st.markdown(f'Angle: **{round(deg,2)}** radian')
+    if st.button("Radian", type="primary"):
+        if radian == 0:
+            st.write("Enter angle is not null\n")
+        else:
+            deg = (radian*math.pi)/180
+            st.divider()
+            st.markdown(f'Angle: **{round(deg,2)}** radian')
