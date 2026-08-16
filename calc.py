@@ -4,7 +4,7 @@ import math
 
 st.title("Calculator for angles")
 
-tab1, tab2 = st.tabs(["Anlge","Cont" ])
+tab1, tab2 = st.tabs(["Anlge","Radian" ,"Degerees" ])
 
 with tab1:
     b=st.number_input("B channel", value=0.0)
@@ -27,14 +27,32 @@ with tab1:
             angle_min = math.degrees(math.asin(L_min / c))
             angle_max = math.degrees(math.asin(L_max / c))
 
-            tol_min=angle_min-angle
-            tol_max=angle_max-angle
+            tol_min=angle-angle_min
+            tol_max=angle-angle_max
+
+            st.divider()
 
             st.latex(f"Angle: {round(angle,2)}_{{{round(tol_min,2)}}}^{{{round(tol_max,2)}}}")
 
 
 with tab2:
-    st.title("Calculator\n")
+    st.title("Calculator degrees\n")
+    st.write("Enter angle")
+
+    angle=st.number_input("a = ",value=0.0)
+
+    def calc_angle(a):
+        if angle == 0:
+            st.write("Введите ненулевые значения a")
+
+        else:
+            x = (angle*math.pi)/180
+            st.write(f'Angle radian {round(x,2)}')
+            calc_angle(angle)
+            st.button("Angle", on_click=calc_angle, args=(angle,), type="primary")
+
+with tab2:
+    st.title("Calculator radian\n")
     st.write("Enter angle")
 
     angle=st.number_input("a = ",value=0.0)
